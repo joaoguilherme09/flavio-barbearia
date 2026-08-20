@@ -1,0 +1,281 @@
+/* ============ FLAVIO BARBEARIA — preto + laranja neon ============ */
+:root{
+  --preto:#0a0a0a;
+  --preto-2:#141414;
+  --preto-3:#1e1e1e;
+  --borda:#2a2a2a;
+  --laranja:#ff6a00;
+  --laranja-neon:#ff8c1a;
+  --glow:0 0 12px rgba(255,106,0,.55), 0 0 32px rgba(255,106,0,.25);
+  --texto:#f2f2f2;
+  --texto-fraco:#9a9a9a;
+  --verde:#2ecc71;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:var(--preto);
+  color:var(--texto);
+  font-family:'Archivo',sans-serif;
+  min-height:100vh;
+}
+h1,h2,h3,.card-num,.logo-mark{font-family:'Archivo Black','Archivo',sans-serif}
+button{font-family:inherit;cursor:pointer}
+input{font-family:inherit}
+
+.tela{display:none;min-height:100vh}
+.tela.ativa{display:block}
+.escondido{display:none !important}
+
+/* ============ LOGIN ============ */
+#tela-login.ativa{
+  display:flex;align-items:center;justify-content:center;
+  background:
+    radial-gradient(600px 400px at 20% 10%, rgba(255,106,0,.12), transparent),
+    radial-gradient(500px 400px at 90% 90%, rgba(255,106,0,.08), transparent),
+    var(--preto);
+  padding:24px;
+}
+.login-wrap{display:flex;gap:56px;align-items:center;flex-wrap:wrap;justify-content:center;max-width:960px;width:100%}
+.login-brand{text-align:center}
+.logo-mark{
+  width:88px;height:88px;margin:0 auto 20px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:34px;color:var(--preto);
+  background:var(--laranja);
+  border-radius:16px;
+  box-shadow:var(--glow);
+  transform:rotate(-4deg);
+}
+.login-brand h1{font-size:40px;letter-spacing:2px;line-height:1}
+.login-brand h1 span{display:block;color:var(--laranja-neon);text-shadow:var(--glow);font-size:26px;letter-spacing:8px}
+.tagline{color:var(--texto-fraco);margin-top:12px}
+
+.login-card{
+  background:var(--preto-2);
+  border:1px solid var(--borda);
+  border-radius:18px;
+  padding:28px;
+  width:100%;max-width:380px;
+}
+.tabs{display:flex;gap:8px;margin-bottom:22px;background:var(--preto);border-radius:10px;padding:4px}
+.tab{
+  flex:1;padding:10px;border:none;border-radius:8px;
+  background:transparent;color:var(--texto-fraco);font-weight:600;
+}
+.tab.ativa{background:var(--laranja);color:var(--preto);box-shadow:var(--glow)}
+
+.form-auth{display:flex;flex-direction:column;gap:14px}
+.form-auth label{display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--texto-fraco)}
+.form-auth input[type=text],.form-auth input[type=email],.form-auth input[type=tel],.form-auth input[type=password]{
+  background:var(--preto);border:1px solid var(--borda);border-radius:10px;
+  padding:12px 14px;color:var(--texto);font-size:15px;outline:none;
+  transition:border .2s, box-shadow .2s;
+}
+.form-auth input:focus{border-color:var(--laranja);box-shadow:0 0 0 3px rgba(255,106,0,.2)}
+.check{flex-direction:row !important;align-items:center;gap:8px !important;font-size:14px !important}
+.check input{accent-color:var(--laranja)}
+.dica{font-size:12px;color:var(--texto-fraco);text-align:center}
+.erro{color:#ff5252;font-size:13px;min-height:16px}
+
+.btn-neon{
+  background:var(--laranja);color:var(--preto);border:none;
+  padding:13px 22px;border-radius:10px;font-weight:800;font-size:15px;
+  letter-spacing:.5px;text-transform:uppercase;
+  box-shadow:var(--glow);
+  transition:transform .15s, box-shadow .2s;
+}
+.btn-neon:hover{transform:translateY(-2px);box-shadow:0 0 18px rgba(255,106,0,.8),0 0 44px rgba(255,106,0,.35)}
+.btn-ghost{
+  background:transparent;border:1px solid var(--borda);color:var(--texto);
+  padding:8px 16px;border-radius:8px;
+}
+.btn-ghost:hover{border-color:var(--laranja);color:var(--laranja-neon)}
+
+/* ============ TOPO / MENU ============ */
+.topo{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:16px 24px;border-bottom:1px solid var(--borda);
+  background:var(--preto-2);position:sticky;top:0;z-index:10;
+}
+.topo-logo{display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:2px}
+.topo-logo b{color:var(--laranja-neon)}
+.topo-acoes{display:flex;align-items:center;gap:14px;color:var(--texto-fraco);font-size:14px}
+
+.menu-admin{
+  display:flex;gap:6px;padding:12px 24px;background:var(--preto-2);
+  border-bottom:1px solid var(--borda);overflow-x:auto;
+}
+.menu-item{
+  background:transparent;border:none;color:var(--texto-fraco);
+  padding:9px 16px;border-radius:8px;font-weight:600;white-space:nowrap;
+}
+.menu-item.ativa{background:var(--laranja);color:var(--preto);box-shadow:var(--glow)}
+
+.conteudo{max-width:1000px;margin:0 auto;padding:28px 20px 100px}
+.titulo-secao{font-size:24px;margin-bottom:22px}
+.titulo-secao span{color:var(--laranja-neon)}
+.sub-secao{margin:30px 0 14px;font-size:16px;color:var(--laranja-neon);letter-spacing:1px;text-transform:uppercase}
+
+/* ============ CLIENTE — passos ============ */
+.passo{margin-bottom:30px}
+.passo h3{font-size:15px;margin-bottom:14px;display:flex;align-items:center;gap:10px;color:var(--texto)}
+.num{
+  width:26px;height:26px;border-radius:50%;background:var(--laranja);color:var(--preto);
+  display:inline-flex;align-items:center;justify-content:center;font-size:13px;
+  box-shadow:var(--glow);
+}
+
+.grade-servicos{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+.card-servico{
+  background:var(--preto-2);border:1px solid var(--borda);border-radius:12px;
+  padding:16px;text-align:left;color:var(--texto);transition:.2s;
+}
+.card-servico b{display:block;margin-bottom:6px}
+.card-servico span{color:var(--laranja-neon);font-weight:700}
+.card-servico:hover{border-color:var(--laranja)}
+.card-servico.selecionado{border-color:var(--laranja);box-shadow:var(--glow);background:var(--preto-3)}
+
+.grade-dias{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;margin-bottom:8px}
+.card-dia{
+  min-width:76px;background:var(--preto-2);border:1px solid var(--borda);
+  border-radius:12px;padding:12px 8px;text-align:center;color:var(--texto);
+}
+.card-dia small{display:block;color:var(--texto-fraco);font-size:11px;text-transform:uppercase}
+.card-dia b{font-size:20px}
+.card-dia.selecionado{border-color:var(--laranja);box-shadow:var(--glow);color:var(--laranja-neon)}
+
+.grade-horas{display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:10px}
+.card-hora{
+  background:var(--preto-2);border:1px solid var(--borda);border-radius:10px;
+  padding:12px 6px;text-align:center;color:var(--texto);font-weight:600;
+}
+.card-hora:hover:not(.ocupado){border-color:var(--laranja)}
+.card-hora.selecionado{background:var(--laranja);color:var(--preto);box-shadow:var(--glow)}
+.card-hora.ocupado{opacity:.35;text-decoration:line-through;cursor:not-allowed}
+
+.resumo-flutuante{
+  position:fixed;bottom:0;left:0;right:0;z-index:20;
+  background:var(--preto-2);border-top:1px solid var(--laranja);
+  box-shadow:0 -6px 30px rgba(255,106,0,.25);
+  padding:14px 20px;display:flex;align-items:center;gap:18px;justify-content:center;flex-wrap:wrap;
+}
+.resumo-flutuante > div{display:flex;flex-direction:column}
+.resumo-flutuante span{color:var(--texto-fraco);font-size:13px}
+.resumo-preco{color:var(--laranja-neon);font-size:22px;font-weight:800}
+
+.lista-agend{display:flex;flex-direction:column;gap:10px}
+.item-agend{
+  background:var(--preto-2);border:1px solid var(--borda);border-radius:12px;
+  padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;
+}
+.item-agend .info b{display:block}
+.item-agend .info span{color:var(--texto-fraco);font-size:13px}
+.item-agend .preco{color:var(--laranja-neon);font-weight:800}
+.btn-cancelar{background:transparent;border:1px solid var(--borda);color:#ff5252;padding:6px 12px;border-radius:8px;font-size:12px}
+.vazio{color:var(--texto-fraco);font-size:14px;padding:10px 0}
+
+/* confirmação */
+.confirmacao-card{
+  max-width:440px;margin:40px auto;background:var(--preto-2);
+  border:1px solid var(--laranja);border-radius:20px;padding:36px;text-align:center;
+  box-shadow:var(--glow);
+}
+.check-anim{
+  width:74px;height:74px;margin:0 auto 20px;border-radius:50%;
+  background:var(--laranja);color:var(--preto);font-size:38px;font-weight:900;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:var(--glow);
+  animation:pop .4s ease;
+}
+@keyframes pop{0%{transform:scale(.3)}70%{transform:scale(1.15)}100%{transform:scale(1)}}
+@media (prefers-reduced-motion: reduce){.check-anim{animation:none}}
+.conf-detalhes{margin:24px 0;text-align:left;display:flex;flex-direction:column;gap:10px}
+.conf-detalhes p{display:flex;justify-content:space-between;border-bottom:1px dashed var(--borda);padding-bottom:8px}
+.conf-detalhes span{color:var(--texto-fraco)}
+.conf-obs{color:var(--texto-fraco);font-size:13px;margin-bottom:22px}
+
+/* ============ ADMIN ============ */
+.cards-dash{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+.card-dash{
+  background:var(--preto-2);border:1px solid var(--borda);border-radius:14px;
+  padding:22px;display:flex;flex-direction:column;gap:6px;
+}
+.card-dash.destaque{border-color:var(--laranja);box-shadow:0 0 14px rgba(255,106,0,.2)}
+.card-num{font-size:32px;color:var(--laranja-neon);text-shadow:0 0 14px rgba(255,106,0,.4)}
+.card-label{color:var(--texto-fraco);font-size:13px;text-transform:uppercase;letter-spacing:1px}
+
+.grade-agenda{margin-top:18px}
+.card-hora.marcado{
+  border-color:var(--laranja);background:var(--preto-3);
+  color:var(--laranja-neon);text-decoration:none;opacity:1;cursor:pointer;
+}
+.legenda{display:flex;gap:16px;margin-top:12px;font-size:13px;color:var(--texto-fraco)}
+
+.detalhe-horario{
+  margin-top:20px;background:var(--preto-2);border:1px solid var(--laranja);
+  border-radius:14px;padding:20px;box-shadow:0 0 14px rgba(255,106,0,.15);
+}
+.detalhe-horario h4{color:var(--laranja-neon);margin-bottom:12px}
+.detalhe-horario p{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px dashed var(--borda);font-size:14px}
+.detalhe-horario p span{color:var(--texto-fraco)}
+.selo{display:inline-block;padding:2px 10px;border-radius:20px;font-size:12px;font-weight:700}
+.selo.assinante{background:rgba(46,204,113,.15);color:var(--verde)}
+.selo.avulso{background:rgba(255,106,0,.15);color:var(--laranja-neon)}
+
+/* serviços admin */
+.form-servico{display:flex;gap:10px;margin-bottom:22px;flex-wrap:wrap}
+.form-servico input{
+  background:var(--preto-2);border:1px solid var(--borda);border-radius:10px;
+  padding:12px 14px;color:var(--texto);flex:1;min-width:160px;outline:none;
+}
+.form-servico input:focus{border-color:var(--laranja)}
+.lista-servicos-admin{display:flex;flex-direction:column;gap:10px}
+.item-servico{
+  background:var(--preto-2);border:1px solid var(--borda);border-radius:12px;
+  padding:12px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+}
+.item-servico b{flex:1}
+.item-servico input{
+  background:var(--preto);border:1px solid var(--borda);border-radius:8px;
+  padding:8px 10px;color:var(--texto);width:110px;outline:none;
+}
+.btn-mini{background:var(--laranja);border:none;color:var(--preto);padding:8px 14px;border-radius:8px;font-weight:700}
+.btn-mini.perigo{background:transparent;border:1px solid var(--borda);color:#ff5252}
+
+/* usuários */
+.busca{
+  width:100%;background:var(--preto-2);border:1px solid var(--borda);border-radius:10px;
+  padding:12px 14px;color:var(--texto);margin-bottom:18px;outline:none;
+}
+.busca:focus{border-color:var(--laranja)}
+.lista-usuarios{display:flex;flex-direction:column;gap:10px}
+.item-usuario{
+  background:var(--preto-2);border:1px solid var(--borda);border-radius:12px;
+  padding:14px 16px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;
+}
+.item-usuario .dados b{display:block}
+.item-usuario .dados span{color:var(--texto-fraco);font-size:13px;display:block}
+.item-usuario .meta{text-align:right;font-size:13px;color:var(--texto-fraco)}
+.item-usuario .meta b{color:var(--laranja-neon);display:block;font-size:16px}
+
+/* estatísticas — barras */
+.barras{display:flex;flex-direction:column;gap:10px}
+.barra-linha{display:flex;align-items:center;gap:12px;font-size:14px}
+.barra-linha .rotulo{width:140px;color:var(--texto-fraco);text-align:right;flex-shrink:0}
+.barra-track{flex:1;background:var(--preto-2);border-radius:6px;height:26px;overflow:hidden;border:1px solid var(--borda)}
+.barra-fill{
+  height:100%;background:linear-gradient(90deg,var(--laranja),var(--laranja-neon));
+  box-shadow:0 0 10px rgba(255,106,0,.5);
+  display:flex;align-items:center;justify-content:flex-end;
+  padding-right:8px;color:var(--preto);font-weight:800;font-size:12px;min-width:28px;
+  border-radius:6px;
+}
+
+button:focus-visible,input:focus-visible{outline:2px solid var(--laranja-neon);outline-offset:2px}
+
+@media (max-width:600px){
+  .login-brand h1{font-size:30px}
+  .card-num{font-size:26px}
+  .conteudo{padding:20px 14px 110px}
+}

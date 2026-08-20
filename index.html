@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flavio Barbearia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===================== TELA LOGIN ===================== -->
+<section id="tela-login" class="tela ativa">
+  <div class="login-wrap">
+    <div class="login-brand">
+      <div class="logo-mark">FB</div>
+      <h1>FLAVIO<span>BARBEARIA</span></h1>
+      <p class="tagline">Corte na régua. Horário na hora.</p>
+    </div>
+    <div class="login-card">
+      <div class="tabs">
+        <button class="tab ativa" data-tab="entrar">Entrar</button>
+        <button class="tab" data-tab="cadastrar">Criar conta</button>
+      </div>
+
+      <form id="form-login" class="form-auth">
+        <label>E-mail ou telefone
+          <input type="text" id="login-user" placeholder="seu@email.com" required>
+        </label>
+        <label>Senha
+          <input type="password" id="login-senha" placeholder="••••••••" required>
+        </label>
+        <p class="erro" id="erro-login"></p>
+        <button type="submit" class="btn-neon">Entrar</button>
+        <p class="dica">Admin de teste: <b>admin</b> / <b>admin</b></p>
+      </form>
+
+      <form id="form-cadastro" class="form-auth escondido">
+        <label>Nome completo
+          <input type="text" id="cad-nome" placeholder="Seu nome" required>
+        </label>
+        <label>E-mail
+          <input type="email" id="cad-email" placeholder="seu@email.com" required>
+        </label>
+        <label>Telefone
+          <input type="tel" id="cad-tel" placeholder="(12) 99999-9999" required>
+        </label>
+        <label>Senha
+          <input type="password" id="cad-senha" placeholder="Crie uma senha" required minlength="4">
+        </label>
+        <label class="check">
+          <input type="checkbox" id="cad-assinatura"> Sou assinante do plano mensal
+        </label>
+        <p class="erro" id="erro-cadastro"></p>
+        <button type="submit" class="btn-neon">Criar conta</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ÁREA CLIENTE ===================== -->
+<section id="tela-cliente" class="tela">
+  <header class="topo">
+    <div class="topo-logo">FB <b>FLAVIO BARBEARIA</b></div>
+    <div class="topo-acoes">
+      <span id="cliente-nome-topo"></span>
+      <button class="btn-ghost" id="btn-sair-cliente">Sair</button>
+    </div>
+  </header>
+
+  <div class="conteudo">
+    <!-- agendamento -->
+    <div id="cliente-agendar">
+      <h2 class="titulo-secao">Agendar horário</h2>
+
+      <div class="passo">
+        <h3><span class="num">1</span> Escolha o serviço</h3>
+        <div id="lista-servicos-cliente" class="grade-servicos"></div>
+      </div>
+
+      <div class="passo">
+        <h3><span class="num">2</span> Escolha o dia</h3>
+        <div id="dias-cliente" class="grade-dias"></div>
+      </div>
+
+      <div class="passo">
+        <h3><span class="num">3</span> Escolha o horário</h3>
+        <div id="horarios-cliente" class="grade-horas"></div>
+      </div>
+
+      <div class="resumo-flutuante escondido" id="resumo-agendamento">
+        <div>
+          <b id="resumo-servico"></b>
+          <span id="resumo-data-hora"></span>
+        </div>
+        <div class="resumo-preco" id="resumo-preco"></div>
+        <button class="btn-neon" id="btn-confirmar-agendamento">Confirmar</button>
+      </div>
+
+      <div class="passo">
+        <h3><span class="num">✓</span> Meus agendamentos</h3>
+        <div id="meus-agendamentos" class="lista-agend"></div>
+      </div>
+    </div>
+
+    <!-- confirmação -->
+    <div id="cliente-confirmado" class="escondido">
+      <div class="confirmacao-card">
+        <div class="check-anim">✓</div>
+        <h2>Horário confirmado!</h2>
+        <div class="conf-detalhes">
+          <p><span>Serviço</span><b id="conf-servico"></b></p>
+          <p><span>Data</span><b id="conf-data"></b></p>
+          <p><span>Horário</span><b id="conf-hora"></b></p>
+          <p><span>Valor</span><b id="conf-valor"></b></p>
+        </div>
+        <p class="conf-obs">Chegue 5 minutos antes. Qualquer imprevisto, avise o Flavio.</p>
+        <button class="btn-neon" id="btn-novo-agendamento">Voltar</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ÁREA ADMIN ===================== -->
+<section id="tela-admin" class="tela">
+  <header class="topo">
+    <div class="topo-logo">FB <b>PAINEL DO FLAVIO</b></div>
+    <div class="topo-acoes">
+      <button class="btn-ghost" id="btn-sair-admin">Sair</button>
+    </div>
+  </header>
+
+  <nav class="menu-admin">
+    <button class="menu-item ativa" data-pagina="dashboard">Início</button>
+    <button class="menu-item" data-pagina="agenda">Agenda</button>
+    <button class="menu-item" data-pagina="servicos">Serviços</button>
+    <button class="menu-item" data-pagina="usuarios">Clientes</button>
+    <button class="menu-item" data-pagina="estatisticas">Estatísticas</button>
+  </nav>
+
+  <div class="conteudo">
+
+    <!-- DASHBOARD -->
+    <div class="pagina-admin" id="pag-dashboard">
+      <h2 class="titulo-secao">Hoje, <span id="dash-data"></span></h2>
+      <div class="cards-dash">
+        <div class="card-dash">
+          <span class="card-num" id="dash-cortes">0</span>
+          <span class="card-label">cortes hoje</span>
+        </div>
+        <div class="card-dash">
+          <span class="card-num" id="dash-livres">0</span>
+          <span class="card-label">horários livres hoje</span>
+        </div>
+        <div class="card-dash destaque">
+          <span class="card-num" id="dash-dia">R$ 0</span>
+          <span class="card-label">faturado hoje</span>
+        </div>
+        <div class="card-dash destaque">
+          <span class="card-num" id="dash-mes">R$ 0</span>
+          <span class="card-label">faturado no mês</span>
+        </div>
+      </div>
+      <h3 class="sub-secao">Próximos da fila</h3>
+      <div id="dash-proximos" class="lista-agend"></div>
+    </div>
+
+    <!-- AGENDA -->
+    <div class="pagina-admin escondido" id="pag-agenda">
+      <h2 class="titulo-secao">Agenda</h2>
+      <div id="dias-admin" class="grade-dias"></div>
+      <div id="grade-agenda" class="grade-horas grade-agenda"></div>
+      <div id="detalhe-horario" class="detalhe-horario escondido"></div>
+    </div>
+
+    <!-- SERVIÇOS -->
+    <div class="pagina-admin escondido" id="pag-servicos">
+      <h2 class="titulo-secao">Serviços e preços</h2>
+      <form id="form-servico" class="form-servico">
+        <input type="text" id="serv-nome" placeholder="Nome do serviço (ex: Sobrancelha)" required>
+        <input type="number" id="serv-preco" placeholder="Preço (R$)" min="0" step="0.01" required>
+        <button type="submit" class="btn-neon">Adicionar</button>
+      </form>
+      <div id="lista-servicos-admin" class="lista-servicos-admin"></div>
+    </div>
+
+    <!-- USUÁRIOS -->
+    <div class="pagina-admin escondido" id="pag-usuarios">
+      <h2 class="titulo-secao">Clientes cadastrados</h2>
+      <input type="text" id="busca-usuario" class="busca" placeholder="Buscar por nome, e-mail ou telefone...">
+      <div id="lista-usuarios" class="lista-usuarios"></div>
+    </div>
+
+    <!-- ESTATÍSTICAS -->
+    <div class="pagina-admin escondido" id="pag-estatisticas">
+      <h2 class="titulo-secao">Estatísticas</h2>
+      <div class="cards-dash">
+        <div class="card-dash"><span class="card-num" id="est-total-agend">0</span><span class="card-label">agendamentos totais</span></div>
+        <div class="card-dash"><span class="card-num" id="est-total-clientes">0</span><span class="card-label">clientes cadastrados</span></div>
+        <div class="card-dash"><span class="card-num" id="est-assinantes">0</span><span class="card-label">assinantes</span></div>
+        <div class="card-dash destaque"><span class="card-num" id="est-faturamento">R$ 0</span><span class="card-label">faturamento total</span></div>
+        <div class="card-dash"><span class="card-num" id="est-ticket">R$ 0</span><span class="card-label">ticket médio</span></div>
+        <div class="card-dash"><span class="card-num" id="est-ocupacao">0%</span><span class="card-label">ocupação (7 dias)</span></div>
+      </div>
+
+      <h3 class="sub-secao">Serviço mais pedido</h3>
+      <div id="est-servicos" class="barras"></div>
+
+      <h3 class="sub-secao">Horários mais procurados</h3>
+      <div id="est-horarios" class="barras"></div>
+
+      <h3 class="sub-secao">Top clientes</h3>
+      <div id="est-clientes" class="lista-agend"></div>
+    </div>
+
+  </div>
+</section>
+
+<script src="app.js"></script>
+</body>
+</html>
